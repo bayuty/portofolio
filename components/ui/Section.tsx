@@ -1,0 +1,33 @@
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+
+interface SectionProps {
+  children: React.ReactNode;
+  id?: string;
+  className?: string;
+  delay?: number;
+}
+
+const Section: React.FC<SectionProps> = ({ children, id, className = "", delay = 0 }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    // Outer section handles full-width background and vertical padding
+    <section id={id} className={`py-28 md:py-48 w-full ${className}`}>
+      {/* Inner div handles content width centering */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8, delay: delay, ease: "easeOut" }}
+        >
+          {children}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Section;

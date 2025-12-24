@@ -106,7 +106,7 @@ export const PROJECTS: Project[] = [
     title: "Siwangi Online",
     description: "The village website serves as an information platform for the community and features a digitized, user-friendly letter submission system to streamline administrative services.",
     tags: ["Public Service"],
-    image: "/siwangi.png",
+    image: "siwangi.png",
     link: "https://siwangi.online/"
   }
 ];

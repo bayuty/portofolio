@@ -8,7 +8,7 @@ const About: React.FC = () => {
   // UNTUK MENGGUNAKAN FILE LOKAL:
   // 1. Simpan foto Anda dengan nama "bayu-profile.jpg" di folder utama (sejajar dengan index.html).
   // 2. Panggil nama file tersebut di sini.
-  const profileImg = './bayu-profile.jpg';
+  const profileImg = '../bayu-profile.jpg';
 
   return (
     <Section id="about">

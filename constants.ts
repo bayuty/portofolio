@@ -210,7 +210,7 @@ export const SOCIALS: SocialLink[] = [
   { platform: "GitHub", url: "https://github.com/bayuty", icon: "Github" },
   {
     platform: "LinkedIn",
-    url: "https://www.linkedin.com/in/bayu-triwicaksono-yulianto",
+    url: "https://www.linkedin.com/in/bayu-triwicaksono-yulianto-88b754359/",
     icon: "Linkedin",
   },
   {

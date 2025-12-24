@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 const MouseSpotlight: React.FC = () => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const [isMobile, setIsMobile] = useState(true);
 
   // Smooth spring animation config
   const springConfig = { damping: 25, stiffness: 150, mass: 0.5 };
@@ -13,14 +14,31 @@ const MouseSpotlight: React.FC = () => {
   const y = useSpring(mouseY, springConfig);
 
   useEffect(() => {
+    // Check if device is mobile or tablet initially
+    const checkMobile = () => {
+      // 768px is standard md breakpoint
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
+      if (!isMobile) {
+        mouseX.set(e.clientX);
+        mouseY.set(e.clientY);
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [mouseX, mouseY]);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, [mouseX, mouseY, isMobile]);
+
+  // Don't render anything on mobile to save performance
+  if (isMobile) return null;
 
   return (
     <>

@@ -84,7 +84,7 @@ export const EXPERIENCE: Experience[] = [
 export const EDUCATION: Education[] = [
   {
     id: "1",
-    degree: "Bachelor Of Informatic Eduation, 3.76/4.00",
+    degree: "Bachelor Of Informatic Education, 3.76/4.00",
     school: "Universitas Sebelas Maret",
     year: "July 2021 - July 2025",
     description:

@@ -163,7 +163,7 @@ export const ORGANIZATIONS: Organization[] = [
       "Led organizational operations and ensured programs were aligned with the strategic vision.",
       "Managed cross-functional teams to support effective coordination across divisions."
     ]
-  }
+  },
   {
     id: "6",
     role: "Vice Chairperson",

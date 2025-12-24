@@ -17,10 +17,13 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-        <div className="absolute top-[20%] right-[10%] w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
-        <div className="absolute bottom-[20%] left-[10%] w-96 h-96 bg-secondary/10 rounded-full blur-[100px]" />
+      {/* Background decoration - Optimized for mobile: Hidden on mobile, block on md+ */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div className="hidden md:block absolute top-[20%] right-[10%] w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
+        <div className="hidden md:block absolute bottom-[20%] left-[10%] w-96 h-96 bg-secondary/10 rounded-full blur-[100px]" />
+        
+        {/* Simple static gradient for mobile to reduce lag */}
+        <div className="md:hidden absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
